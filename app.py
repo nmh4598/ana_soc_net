@@ -294,7 +294,7 @@ with col1:
         else:
             df_com = "Top_propre"
         df_final,df_mes = df_final()
-        G = scripts.gnet_pyvis(df_final, df_com)
+        G = gnet_pyvis(df_final, df_com)
         st.subheader("Network Properties")
         st.write(df_mes.T.rename(columns={0: "Properties"}))
     if data == data_list[1]:
