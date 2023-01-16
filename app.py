@@ -13,6 +13,8 @@ import random
 
 n = 100
 average_degree = 4.90322
+edges = pd.read_csv('data/ter/edges.csv')
+nodes = pd.read_csv('data/ter/nodes.csv')
 
 def create_centrality_df(centrality_dict,column_name,df_init):
     df_centrality = pd.DataFrame.from_dict(centrality_dict, orient='index')
@@ -22,8 +24,6 @@ def create_centrality_df(centrality_dict,column_name,df_init):
     return df_fin_centrality
 
 def df_final():
-    edges = pd.read_csv('data\\ter\\edges.csv')
-    nodes = pd.read_csv('data\\ter\\nodes.csv')
     nodes= nodes.rename({'# index': 'index',
                         ' id': 'id', 
                         ' name': 'name', 
@@ -101,8 +101,6 @@ def df_final():
             "Average Shortest Path": [round(nx.average_shortest_path_length(G), 3)],
             "Clustering": [round(nx.average_clustering(G), 3)]})
     return df_com_louvain, df_mes
-
-edges = pd.read_csv('data\\ter\\edges.csv')
 
 def gnet_pyvis(df_final,couleur):
     
