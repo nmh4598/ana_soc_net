@@ -334,13 +334,13 @@ with col1:
 with col2:
     # Save and read graph as HTML file (on Streamlit Sharing)
     try:
-        G.save_graph('ouput\\pyvis_graph.html')
-        HtmlFile = open('output\\pyvis_graph.html', 'r', encoding='utf-8')
+        G.save_graph('ouput/pyvis_graph.html')
+        HtmlFile = open('output/pyvis_graph.html', 'r', encoding='utf-8')
 
     # Save and read graph as HTML file (locally)
     except:
-        G.save_graph('output\\pyvis_graph.html')
-        HtmlFile = open('output\\pyvis_graph.html', 'r', encoding='utf-8')
+        G.save_graph('output/pyvis_graph.html')
+        HtmlFile = open('output/pyvis_graph.html', 'r', encoding='utf-8')
 
     # Load HTML file in HTML component for display on Streamlit page
     components.html(HtmlFile.read(), height = 1020)
