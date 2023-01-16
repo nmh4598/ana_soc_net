@@ -13,8 +13,7 @@ import random
 
 n = 100
 average_degree = 4.90322
-edges = pd.read_csv('data/ter/edges.csv')
-nodes = pd.read_csv('data/ter/nodes.csv')
+
 
 def create_centrality_df(centrality_dict,column_name,df_init):
     df_centrality = pd.DataFrame.from_dict(centrality_dict, orient='index')
@@ -24,6 +23,8 @@ def create_centrality_df(centrality_dict,column_name,df_init):
     return df_fin_centrality
 
 def df_final():
+    edges = pd.read_csv('data/ter/edges.csv')
+    nodes = pd.read_csv('data/ter/nodes.csv')
     nodes= nodes.rename({'# index': 'index',
                         ' id': 'id', 
                         ' name': 'name', 
@@ -103,7 +104,7 @@ def df_final():
     return df_com_louvain, df_mes
 
 def gnet_pyvis(df_final,couleur):
-    
+    edges = pd.read_csv('data/ter/edges.csv')
     color_map = {0: "#ff4d4d", 1: "#33cc33", 2: "#0066cc", 3: "#990000", 4: '#F8C471', 5: 'DarkSlateGray'}
     df_final['color'] = df_final[couleur].map(color_map)
        
