@@ -1,0 +1,6 @@
+# prop_name, value
+name,terrorists_911
+description,"Network of individuals and their known social associations, centered around the hijackers that carried out the September 11th, 2001 terrorist attacks. Associations extracted after-the-fact from public data. Metadata labels say which plane a person was on, if any, on 9/11."
+citation,"['V. Krebs, \"Mapping networks of terrorist cells.\" Connections 24, 43-52 (2002)., http://insna.org/PDF/Connections/v24/2001_I-3-7.pdf']"
+url,http://tuvalu.santafe.edu/~aaronc/datacode.htm
+tags,"['Social', 'Offline', 'Unweighted', 'Metadata']"
