@@ -21,15 +21,13 @@ Streamlit app: [Link](https://nmh4598-ana-soc-net-app-pk97cs.streamlit.app/)
 ## Introduction
 We will discover the formation of terrorist social networks. The "Hamburg cell" was a group of radical Islamists based in Hamburg, Germany on November 1, 1998, which included students from different Arab countries who eventually became key agents in the September 11 attacks. They are the important members: <span style="color:#990000">**Marwan al-Shehhi** </span>, <span style="color:#0066cc">**Ziad Jarrah** </span > and <span style="color:#ff4d4d">**Mohamed Atta**</span>, who led the four hijacking teams, . They arrived in the United States in mid-2000 to conduct flight training. Other members included <span style="color:orange">Said Bahaji, Zakariya Essabar, Mounir el-Motassadeq and Abdelghani Mzoudi</span>. And <span style="color:orange">Ramzi bin al-Shibh</span>, who conspired with the other three members but was unable to obtain a visa to enter the United States. It was later replaced with <span style="color:#33cc33">**Hani Hanjour**</span>. But the first hijackers to arrive in the United States were <span style="color:#33cc33">**Khalid al-Mihdhar**</span> and <span style="color:#33cc33"> **Nawaf al-Hazmi** </span> in January 2000.
 
-![image](data\\img\\airplane.jpg)
+![image](data/air.png)
 
 <p style="text-align: center;"> Flight paths of the four planes<p>
 
 ## Analyze
 
 This project aims to analyze terrorist networks and compare them to random networks using graph visualization techniques. The project will use various centrality measures and community detection algorithms to understand the structure and characteristics of these networks. The ultimate goal is to use the theory of random graphs to reconstruct the terrorist network and identify the closest random network.
-
-
 
  - Descriptive statistics of graph
 
