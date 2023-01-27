@@ -5,4 +5,4 @@ Run streamlit application:
     python -m pip install -r requirements.txt
     streamlit run app.py
     
-Link streamlit: https://nmh4598-ana-soc-net-app-pk97cs.streamlit.app/
+You can check my app streamlit here: https://nmh4598-ana-soc-net-app-pk97cs.streamlit.app/
