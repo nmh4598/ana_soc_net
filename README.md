@@ -1,4 +1,4 @@
-# Analyze terrorist networks and random network
+# Terrorist and random network analysis
 
 
 ## Installation
