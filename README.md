@@ -3,17 +3,51 @@
 
 ## Installation
 
-You can run streamlit application via `pip`: 
+To install the required packages, follow these steps:
 
+- Clone this repository to your local machine.
+
+- Open a terminal window and navigate to the root directory of the repository.
+
+Option 1: Install via pip
+ 
+Create a virtual environment by running the following command:
+
+```bash
+    python -m venv venv
 ```
-    virtualenv venv
+- Activate the virtual environment. If you use Windows, run:
+```bash
     source venv/Scripts/activate
-    python -m pip install -r requirements.txt
-    streamlit run app.py
 ```
+If you use Macbook or Linux, run:
+
+```bash
+    source venv/bin/activate
+```
+Install the required packages by running:
+```bash
+    python -m pip install -r requirements.txt
+    streamlit run src/app.py
+```
+
+Option 2: Install via Docker
+
+- Build the Docker image by running the following command:
+```bash
+docker build -t my-streamlit-app .
+```
+- Run the Docker container by running the following command:
+```bash
+docker run -p 8501:8501 my-streamlit-app
+```
+
+This will start the Docker container and map port 8501 of the container to port 8501 of your local machine.
+
+Finally, open a web browser and go to http://localhost:8501 to access the Streamlit app.
 
 ## You can check my app streamlit here
-Streamlit app: [Link](https://nmh4598-ana-soc-net-app-pk97cs.streamlit.app/)
+Streamlit app: [Link](https://nmh4598ana.streamlit.app/)
 
 
 ![image](data/streamlit.png)
