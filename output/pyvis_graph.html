@@ -43,6 +43,12 @@
              
 
              
+             #config {
+                 float: left;
+                 width: 400px;
+                 height: 600px;
+             }
+             
 
              
         </style>
@@ -57,6 +63,8 @@
         </div>
 
         
+        
+            <div id="config"></div>
         
 
         <script type="text/javascript">
@@ -88,8 +96,8 @@
                   
 
                   // parsing and collecting nodes and edges from the python
-                  nodes = new vis.DataSet([{"color": "#F8C471", "font": {"color": "black"}, "id": 0, "label": "Samir_Kashk", "shape": "dot", "x": 15.31373468, "y": 10.35623441}, {"color": "#F8C471", "font": {"color": "black"}, "id": 1, "label": "Essid_Sami_Ben_Khemais", "shape": "dot", "x": 15.07710031, "y": 10.3391242}, {"color": "#F8C471", "font": {"color": "black"}, "id": 2, "label": "Madjid_Sahoune", "shape": "dot", "x": 15.19828751, "y": 10.05392419}, {"color": "#F8C471", "font": {"color": "black"}, "id": 3, "label": "Fahid_al_Shakri", "shape": "dot", "x": 15.33516028, "y": 10.20180094}, {"color": "#F8C471", "font": {"color": "black"}, "id": 4, "label": "Lased_Ben_Heni", "shape": "dot", "x": 15.18513239, "y": 10.19040057}, {"color": "#F8C471", "font": {"color": "black"}, "id": 5, "label": "Mohamed_Bensakhria", "shape": "dot", "x": 15.03770007, "y": 10.196347}, {"color": "#F8C471", "font": {"color": "black"}, "id": 6, "label": "Seifallah_ben_Hassine", "shape": "dot", "x": 14.919585, "y": 10.24366312}, {"color": "#F8C471", "font": {"color": "black"}, "id": 7, "label": "Mehdi_Khammoun", "shape": "dot", "x": 14.99736969, "y": 10.07194878}, {"color": "#F8C471", "font": {"color": "black"}, "id": 8, "label": "Essoussi_Laaroussi", "shape": "dot", "x": 14.9822137, "y": 10.40242284}, {"color": "#F8C471", "font": {"color": "black"}, "id": 9, "label": "Tarek_Maaroufi", "shape": "dot", "x": 14.8562263, "y": 10.36559695}, {"color": "#F8C471", "font": {"color": "black"}, "id": 10, "label": "Haydar_Abu_Doha", "shape": "dot", "x": 14.84796888, "y": 10.14187275}, {"color": "#ff4d4d", "font": {"color": "black"}, "id": 11, "label": "Mohamed_Atta", "shape": "dot", "x": 14.98028821, "y": 10.89975025}, {"color": "#F8C471", "font": {"color": "black"}, "id": 12, "label": "Abu_Qatada", "shape": "dot", "x": 14.59930298, "y": 10.43444566}, {"color": "#F8C471", "font": {"color": "black"}, "id": 13, "label": "Imad_Eddin_Barakat_Yarkas", "shape": "dot", "x": 14.81485998, "y": 10.59563101}, {"color": "#F8C471", "font": {"color": "black"}, "id": 14, "label": "Ahmed_Ressam", "shape": "dot", "x": 14.67705964, "y": 10.30038677}, {"color": "#F8C471", "font": {"color": "black"}, "id": 15, "label": "Zacarias_Moussaoui", "shape": "dot", "x": 14.63488589, "y": 10.59918071}, {"color": "#F8C471", "font": {"color": "black"}, "id": 16, "label": "Abu_Walid", "shape": "dot", "x": 14.43356855, "y": 10.28767224}, {"color": "#F8C471", "font": {"color": "black"}, "id": 17, "label": "Djamal_Beghal", "shape": "dot", "x": 14.32938524, "y": 10.42753416}, {"color": "#F8C471", "font": {"color": "black"}, "id": 18, "label": "Kamel_Daoudi", "shape": "dot", "x": 14.30120598, "y": 10.3153807}, {"color": "#F8C471", "font": {"color": "black"}, "id": 19, "label": "Jean-Marc_Grandvisir", "shape": "dot", "x": 14.12201815, "y": 10.54143357}, {"color": "#F8C471", "font": {"color": "black"}, "id": 20, "label": "Abu_Zubeida", "shape": "dot", "x": 14.16348388, "y": 10.22478544}, {"color": "#F8C471", "font": {"color": "black"}, "id": 21, "label": "Mizar_Trabelsi", "shape": "dot", "x": 14.0817901, "y": 10.37805485}, {"color": "#F8C471", "font": {"color": "black"}, "id": 22, "label": "Jerome_Courtaillier", "shape": "dot", "x": 14.41144307, "y": 10.51847223}, {"color": "#F8C471", "font": {"color": "black"}, "id": 23, "label": "David_Courtaillier", "shape": "dot", "x": 14.42268576, "y": 10.66587393}, {"color": "#F8C471", "font": {"color": "black"}, "id": 24, "label": "Ramzi_Bin_al-Shibh", "shape": "dot", "x": 14.90149155, "y": 10.75159258}, {"color": "#F8C471", "font": {"color": "black"}, "id": 25, "label": "Mohammed_Belfas", "shape": "dot", "x": 15.0478764, "y": 10.58825468}, {"color": "#F8C471", "font": {"color": "black"}, "id": 26, "label": "Agus_Budiman", "shape": "dot", "x": 15.07184037, "y": 10.72785269}, {"color": "#F8C471", "font": {"color": "black"}, "id": 27, "label": "Mounir_El_Motassadeq", "shape": "dot", "x": 14.86933711, "y": 10.87981697}, {"color": "#F8C471", "font": {"color": "black"}, "id": 28, "label": "Zakariya_Essabar", "shape": "dot", "x": 14.97157507, "y": 10.81311521}, {"color": "#F8C471", "font": {"color": "black"}, "id": 29, "label": "Said_Bahaji", "shape": "dot", "x": 15.06867069, "y": 10.84086239}, {"color": "#0066cc", "font": {"color": "black"}, "id": 30, "label": "Ziad_Jarrah", "shape": "dot", "x": 14.94040916, "y": 11.01451657}, {"color": "#990000", "font": {"color": "black"}, "id": 31, "label": "Marwan_Al-Shehhi", "shape": "dot", "x": 15.06696913, "y": 10.98782254}, {"color": "#F8C471", "font": {"color": "black"}, "id": 32, "label": "Abdelghani_Mzoudi", "shape": "dot", "x": 14.68540614, "y": 10.95190471}, {"color": "#F8C471", "font": {"color": "black"}, "id": 33, "label": "Ahmed_Khalil_Ibrahim_Samir_Al-Ani", "shape": "dot", "x": 14.71487863, "y": 10.81155895}, {"color": "#F8C471", "font": {"color": "black"}, "id": 34, "label": "Mustafa_Ahmed_al-Hisawi", "shape": "dot", "x": 15.25064148, "y": 10.89069717}, {"color": "#990000", "font": {"color": "black"}, "id": 35, "label": "Fayez_Ahmed", "shape": "dot", "x": 15.24018268, "y": 11.03535941}, {"color": "#ff4d4d", "font": {"color": "black"}, "id": 36, "label": "Waleed_Alshehri", "shape": "dot", "x": 15.32387787, "y": 11.0026814}, {"color": "#F8C471", "font": {"color": "black"}, "id": 37, "label": "Mamoun_Darkazanli", "shape": "dot", "x": 15.22964481, "y": 10.77310692}, {"color": "#ff4d4d", "font": {"color": "black"}, "id": 38, "label": "Wail_Alshehri", "shape": "dot", "x": 15.17530662, "y": 10.97272736}, {"color": "#ff4d4d", "font": {"color": "black"}, "id": 39, "label": "Satam_Suqami", "shape": "dot", "x": 15.24377056, "y": 11.13561682}, {"color": "#ff4d4d", "font": {"color": "black"}, "id": 40, "label": "Abdul_Aziz_Al-Omari", "shape": "dot", "x": 15.09999318, "y": 11.09727969}, {"color": "#F8C471", "font": {"color": "black"}, "id": 41, "label": "Lotfi_Raissi", "shape": "dot", "x": 14.82637402, "y": 11.06029875}, {"color": "#0066cc", "font": {"color": "black"}, "id": 42, "label": "Ahmed_Al_Haznawi", "shape": "dot", "x": 15.06916221, "y": 11.18693434}, {"color": "#33cc33", "font": {"color": "black"}, "id": 43, "label": "Hani_Hanjour", "shape": "dot", "x": 14.85807803, "y": 11.1955934}, {"color": "#33cc33", "font": {"color": "black"}, "id": 44, "label": "Nawaf_Alhazmi", "shape": "dot", "x": 14.98616503, "y": 11.38180425}, {"color": "#990000", "font": {"color": "black"}, "id": 45, "label": "Mohand_Alshehri", "shape": "dot", "x": 15.42318652, "y": 11.17827853}, {"color": "#F8C471", "font": {"color": "black"}, "id": 46, "label": "Mamduh_Mahmud_Salim", "shape": "dot", "x": 15.47230026, "y": 10.68739555}, {"color": "#33cc33", "font": {"color": "black"}, "id": 47, "label": "Salem_Alhazmi", "shape": "dot", "x": 14.95374878, "y": 11.23281937}, {"color": "#990000", "font": {"color": "black"}, "id": 48, "label": "Hamza_Alghamdi", "shape": "dot", "x": 15.19206884, "y": 11.27999745}, {"color": "#F8C471", "font": {"color": "black"}, "id": 49, "label": "Raed_Hijazi", "shape": "dot", "x": 15.42819859, "y": 11.35683278}, {"color": "#F8C471", "font": {"color": "black"}, "id": 50, "label": "Nabil_al-Marabh", "shape": "dot", "x": 15.31476921, "y": 11.34146981}, {"color": "#990000", "font": {"color": "black"}, "id": 51, "label": "Ahmed_Alghamdi", "shape": "dot", "x": 15.08438901, "y": 11.30541685}, {"color": "#F8C471", "font": {"color": "black"}, "id": 52, "label": "Rayed_Mohammed_Abdullah", "shape": "dot", "x": 14.66750595, "y": 11.19801676}, {"color": "#0066cc", "font": {"color": "black"}, "id": 53, "label": "Saeed_Alghamdi", "shape": "dot", "x": 15.21564142, "y": 11.40714465}, {"color": "#0066cc", "font": {"color": "black"}, "id": 54, "label": "Ahmed_Alnami", "shape": "dot", "x": 15.1617266, "y": 11.51819168}, {"color": "#33cc33", "font": {"color": "black"}, "id": 55, "label": "Majed_Moqed", "shape": "dot", "x": 14.81441246, "y": 11.3500669}, {"color": "#33cc33", "font": {"color": "black"}, "id": 56, "label": "Khalid_Al-Mihdhar", "shape": "dot", "x": 14.86535336, "y": 11.44487613}, {"color": "#F8C471", "font": {"color": "black"}, "id": 57, "label": "Bandar_Alhazmi", "shape": "dot", "x": 14.6347857, "y": 11.35322099}, {"color": "#F8C471", "font": {"color": "black"}, "id": 58, "label": "Raisal_Al_Salmi", "shape": "dot", "x": 14.55403937, "y": 11.23268883}, {"color": "#F8C471", "font": {"color": "black"}, "id": 59, "label": "Osama_Awadallah", "shape": "dot", "x": 14.80018722, "y": 11.58539287}, {"color": "#F8C471", "font": {"color": "black"}, "id": 60, "label": "Abdussattar_Shaikh", "shape": "dot", "x": 14.91685584, "y": 11.60891137}, {"color": "#F8C471", "font": {"color": "black"}, "id": 61, "label": "Mohamed_Abdi", "shape": "dot", "x": 15.05986311, "y": 11.66837426}]);
-                  edges = new vis.DataSet([{"from": 0, "to": 1}, {"from": 1, "to": 2}, {"from": 1, "to": 3}, {"from": 1, "to": 4}, {"from": 1, "to": 6}, {"from": 1, "to": 5}, {"from": 1, "to": 7}, {"from": 1, "to": 8}, {"from": 1, "to": 9}, {"from": 1, "to": 10}, {"from": 1, "to": 11}, {"from": 4, "to": 5}, {"from": 5, "to": 7}, {"from": 5, "to": 9}, {"from": 6, "to": 9}, {"from": 7, "to": 10}, {"from": 8, "to": 9}, {"from": 9, "to": 12}, {"from": 9, "to": 13}, {"from": 10, "to": 14}, {"from": 11, "to": 15}, {"from": 11, "to": 13}, {"from": 11, "to": 24}, {"from": 11, "to": 32}, {"from": 11, "to": 33}, {"from": 11, "to": 34}, {"from": 11, "to": 26}, {"from": 11, "to": 27}, {"from": 11, "to": 28}, {"from": 11, "to": 35}, {"from": 11, "to": 37}, {"from": 11, "to": 29}, {"from": 11, "to": 30}, {"from": 11, "to": 31}, {"from": 11, "to": 38}, {"from": 11, "to": 39}, {"from": 11, "to": 40}, {"from": 11, "to": 41}, {"from": 11, "to": 42}, {"from": 11, "to": 43}, {"from": 11, "to": 44}, {"from": 12, "to": 16}, {"from": 12, "to": 17}, {"from": 12, "to": 15}, {"from": 12, "to": 13}, {"from": 13, "to": 24}, {"from": 14, "to": 15}, {"from": 15, "to": 17}, {"from": 15, "to": 22}, {"from": 15, "to": 23}, {"from": 15, "to": 24}, {"from": 16, "to": 17}, {"from": 16, "to": 18}, {"from": 17, "to": 19}, {"from": 17, "to": 20}, {"from": 17, "to": 21}, {"from": 17, "to": 18}, {"from": 17, "to": 22}, {"from": 18, "to": 22}, {"from": 22, "to": 23}, {"from": 24, "to": 25}, {"from": 24, "to": 26}, {"from": 24, "to": 27}, {"from": 24, "to": 28}, {"from": 24, "to": 29}, {"from": 24, "to": 30}, {"from": 24, "to": 31}, {"from": 25, "to": 26}, {"from": 26, "to": 29}, {"from": 26, "to": 31}, {"from": 27, "to": 29}, {"from": 27, "to": 31}, {"from": 28, "to": 29}, {"from": 28, "to": 30}, {"from": 28, "to": 31}, {"from": 29, "to": 37}, {"from": 29, "to": 30}, {"from": 29, "to": 31}, {"from": 30, "to": 31}, {"from": 30, "to": 41}, {"from": 30, "to": 42}, {"from": 30, "to": 47}, {"from": 30, "to": 43}, {"from": 31, "to": 34}, {"from": 31, "to": 35}, {"from": 31, "to": 37}, {"from": 31, "to": 38}, {"from": 31, "to": 36}, {"from": 31, "to": 39}, {"from": 31, "to": 40}, {"from": 31, "to": 41}, {"from": 31, "to": 48}, {"from": 31, "to": 47}, {"from": 31, "to": 43}, {"from": 34, "to": 35}, {"from": 34, "to": 36}, {"from": 35, "to": 38}, {"from": 35, "to": 36}, {"from": 35, "to": 45}, {"from": 35, "to": 39}, {"from": 35, "to": 40}, {"from": 36, "to": 38}, {"from": 36, "to": 39}, {"from": 36, "to": 40}, {"from": 37, "to": 46}, {"from": 38, "to": 39}, {"from": 38, "to": 40}, {"from": 39, "to": 40}, {"from": 39, "to": 49}, {"from": 39, "to": 50}, {"from": 40, "to": 51}, {"from": 40, "to": 47}, {"from": 40, "to": 43}, {"from": 41, "to": 43}, {"from": 41, "to": 52}, {"from": 42, "to": 48}, {"from": 42, "to": 53}, {"from": 43, "to": 51}, {"from": 43, "to": 47}, {"from": 43, "to": 57}, {"from": 43, "to": 52}, {"from": 43, "to": 58}, {"from": 43, "to": 55}, {"from": 43, "to": 56}, {"from": 43, "to": 44}, {"from": 44, "to": 48}, {"from": 44, "to": 47}, {"from": 44, "to": 55}, {"from": 44, "to": 56}, {"from": 44, "to": 59}, {"from": 44, "to": 60}, {"from": 44, "to": 61}, {"from": 44, "to": 54}, {"from": 44, "to": 53}, {"from": 45, "to": 48}, {"from": 47, "to": 51}, {"from": 47, "to": 55}, {"from": 47, "to": 56}, {"from": 48, "to": 51}, {"from": 48, "to": 54}, {"from": 48, "to": 53}, {"from": 49, "to": 50}, {"from": 49, "to": 53}, {"from": 50, "to": 51}, {"from": 50, "to": 53}, {"from": 52, "to": 57}, {"from": 52, "to": 58}, {"from": 53, "to": 54}, {"from": 55, "to": 56}, {"from": 56, "to": 59}, {"from": 56, "to": 60}, {"from": 59, "to": 60}]);
+                  nodes = new vis.DataSet([]);
+                  edges = new vis.DataSet([]);
 
                   nodeColors = {};
                   allNodes = nodes.get({ returnType: "Object" });
@@ -100,11 +108,46 @@
                   // adding nodes and edges to the graph
                   data = {nodes: nodes, edges: edges};
 
-                  var options = {"nodes": {"borderWidth": 7, "opacity": 0.2, "font": {"size": 31}, "scaling": {"min": 29, "max": 85}, "shapeProperties": {"borderRadius": 7}, "size": 30}, "physics": {"forceAtlas2Based": {"springLength": 100}, "minVelocity": 0.75, "solver": "forceAtlas2Based"}};
+                  var options = {
+    "configure": {
+        "enabled": true,
+        "filter": [
+            "physics"
+        ]
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
 
                   
 
 
+                  
+                  // if this network requires displaying the configure window,
+                  // put it in its div
+                  options.configure["container"] = document.getElementById("config");
                   
 
                   network = new vis.Network(container, data, options);

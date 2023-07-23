@@ -12,4 +12,4 @@ EXPOSE 8501
 WORKDIR /app
 
 ENTRYPOINT ["streamlit","run"]
-CMD ["app.py"]
+CMD ["src/app.py"]
