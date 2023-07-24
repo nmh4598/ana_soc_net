@@ -3,11 +3,10 @@ import pandas as pd
 from pyvis.network import Network
 
 from cen_com import CenCom
-from graphs import Graph  
+from graphs import Graph
 
 
 class PyvisGraph(CenCom):
-
     COLOR_MAP = {
         0: "#ff4d4d",
         1: "#33cc33",
@@ -56,14 +55,12 @@ class PyvisGraph(CenCom):
         }
         """
 
-    def init( self):
+    def init(self):
         CenCom.__init__(self, edges_path, nodes_path)
 
     def gnet_pyvis(self, algo: str, n: int = 8):
         print("Initializing pyvis graph...")
-        G = Network(
-            height="900px", width="100%", bgcolor="#FFFFFF", font_color="black"
-        )
+        G = Network(height="900px", width="100%", bgcolor="#FFFFFF", font_color="black")
 
         if algo not in CenCom.CEN_LIST + CenCom.COM_LIST:
             raise ValueError(
@@ -72,29 +69,29 @@ class PyvisGraph(CenCom):
             )
 
         elif algo in CenCom.CEN_LIST:
-            print(f"Calculating {algo}")          
+            print(f"Calculating {algo}")
             self.centrality(algo, n)
             df_pyvis = self.df_centrality.copy()
             df_pyvis["color"] = df_pyvis.iloc[:, 8].map(PyvisGraph.COLOR_MAP)
 
         elif algo in CenCom.COM_LIST:
             print(f"Calculating {algo}")
-            if self.rg == False:      
+            if self.rg == False:
                 if algo == CenCom.COM_LIST[0]:
                     df_pyvis = self.nodes.copy()
                     df_pyvis["color"] = df_pyvis["group"].map(PyvisGraph.COLOR_MAP)
                     print("Data default")
 
-                else:                    
+                else:
                     self.communities(algo)
                     df_pyvis = self.df_communities.copy()
                     df_pyvis["color"] = df_pyvis.iloc[:, 7].map(PyvisGraph.COLOR_MAP)
                 G.add_nodes(
                     df_pyvis["index"],
-                    x = df_pyvis["x"],
-                    y = df_pyvis["y"],
-                    label = df_pyvis["name"],
-                    color = df_pyvis["color"],
+                    x=df_pyvis["x"],
+                    y=df_pyvis["y"],
+                    label=df_pyvis["name"],
+                    color=df_pyvis["color"],
                 )
                 sources = self.edges["# source"]
                 targets = self.edges[" target"]
@@ -104,8 +101,8 @@ class PyvisGraph(CenCom):
                     dst = e[1]
                     G.add_edge(src, dst)
                 G.set_options(PyvisGraph.OPTION1)
-                
-            elif self.rg == True:  
+
+            elif self.rg == True:
                 self.communities(algo)
                 G.from_nx(self.graph)
                 list_nodes = G.get_network_data()[0]
@@ -120,9 +117,9 @@ class PyvisGraph(CenCom):
                     )
                 print("Created random graph pyvis...")
                 G.set_options(PyvisGraph.OPTION2)
-           
+
             print("Created graph pyvis")
-        #G.show_buttons(filter_=['physics'])
+        # G.show_buttons(filter_=['physics'])
         self.pyvis = G
 
 

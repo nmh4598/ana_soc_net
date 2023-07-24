@@ -94,7 +94,7 @@ class CenCom(Carac):
             raise ValueError(
                 f"Invalid centrality name. Expected one of: {CenCom.COM_LIST}"
             )
-        
+
         elif algo == CenCom.COM_LIST[1]:
             communities_algo = next(nxcom.girvan_newman(self.graph))
 

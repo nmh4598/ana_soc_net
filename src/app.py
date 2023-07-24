@@ -1,11 +1,12 @@
+"""Streamlit app"""
 import streamlit as st
 import streamlit.components.v1 as components
-from pyvis_graph import PyvisGraph 
 
 
-from graphs import Graph    
-from carac import Carac 
-from cen_com import CenCom
+from .pyvis_graph import PyvisGraph
+from .graphs import Graph
+from .cen_com import CenCom
+
 
 def main():
     # Set header title
@@ -28,31 +29,23 @@ def main():
                 "Select centrality or community:", ("Community", "Centrality")
             )
             if algo == "Community":
-                cen = st.selectbox(
-                    "Select Community:", CenCom.COM_LIST
-                )
-                G.choose_data(Graph.DATA_LIST[0])              
+                cen = st.selectbox("Select Community:", CenCom.COM_LIST)
+                G.choose_data(Graph.DATA_LIST[0])
                 G.gnet_pyvis(cen)
             else:
-                com = st.selectbox(
-                    "Select Centrality:", CenCom.CEN_LIST
-                )
-                G.choose_data(Graph.DATA_LIST[0])  
+                com = st.selectbox("Select Centrality:", CenCom.CEN_LIST)
+                G.choose_data(Graph.DATA_LIST[0])
                 G.gnet_pyvis(com)
         else:
             st.write("Random Graph with communities.")
-            rg = st.selectbox(
-                    "Select random graph:", Graph.RANDOM_MODEL_LIST
-                )  
-            G.choose_data(Graph.DATA_LIST[1], rg)     
+            rg = st.selectbox("Select random graph:", Graph.RANDOM_MODEL_LIST)
+            G.choose_data(Graph.DATA_LIST[1], rg)
 
-            com = st.selectbox(
-                    "Select community:", CenCom.COM_LIST[1:]
-                )              
+            com = st.selectbox("Select community:", CenCom.COM_LIST[1:])
             G.gnet_pyvis(com)
         st.write(G.info().T.rename(columns={0: "Properties"}))
 
-    with col2:            
+    with col2:
         try:
             G.pyvis.save_graph("pyvis_graph.html")
             HtmlFile = open("pyvis_graph.html", "r", encoding="utf-8")
@@ -64,6 +57,7 @@ def main():
 
         # Load HTML file in HTML component for display on Streamlit page
         components.html(HtmlFile.read(), height=1020)
+
 
 if __name__ == "__main__":
     main()

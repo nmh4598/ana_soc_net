@@ -4,7 +4,6 @@ import re
 
 
 class Graph:
-
     DATA_LIST = ["Mapping Networks of Terrorist Cells", "Random Graph"]
 
     RANDOM_MODEL_LIST = [
@@ -24,10 +23,10 @@ class Graph:
     def __init__(self, edges_path: str, nodes_path: str):
         self.edges_path = edges_path
         self.nodes_path = nodes_path
-        self.edges : pd.DataFrame = None
-        self.nodes : pd.DataFrame = None
+        self.edges: pd.DataFrame = None
+        self.nodes: pd.DataFrame = None
         self.graph = None
-        self.rg : bool = None
+        self.rg: bool = None
 
     def load_data(self):
         self.edges = pd.read_csv(self.edges_path)
@@ -99,9 +98,7 @@ class Graph:
 
         print("Random graph created...")
 
-    def choose_data(self,
-                    type_data: str, 
-                    random_model: str = None):
+    def choose_data(self, type_data: str, random_model: str = None):
         if type_data == Graph.DATA_LIST[0]:
             self.create_graph()
             self.rg = False
