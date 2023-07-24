@@ -42,13 +42,10 @@ def main():
         st.write(graph_ter.info().T.rename(columns={0: "Properties"}))
 
     with col2:
-
         graph_ter.pyvis.save_graph("pyvis_graph.html")
-        graph_ter_html = open("pyvis_graph.html", "r", encoding="utf-8")
-
         # Load HTML file in HTML component for display on Streamlit page
-        components.html(graph_ter_html.read(), height=1020)
-
+        with open("pyvis_graph.html", "r", encoding="utf-8") as graph_ter_html:
+            components.html(graph_ter_html.read(), height=1020)
 
 if __name__ == "__main__":
     main()

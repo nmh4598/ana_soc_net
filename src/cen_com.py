@@ -1,12 +1,14 @@
+"""Class Centrality and Community"""
 import networkx as nx
 import pandas as pd
-from carac import Carac
+from .carac import Carac
 import networkx.algorithms.community as nxcom
 import webcolors
 import random
 
 
 class CenCom(Carac):
+    """Class CenCom"""
     CEN_LIST = [
         "Centrality : Degree Centrality",
         "Centrality : Betweenness Centrality",
@@ -22,6 +24,7 @@ class CenCom(Carac):
     ]
 
     def init(self):
+        """Inheritance from class Carac"""
         Carac.__init__(self, edges_path, nodes_path)
 
     def _create_centrality_df(self, centrality_dict: dict, algo: str, n: int):
