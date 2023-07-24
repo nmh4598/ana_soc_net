@@ -9,6 +9,7 @@ import random
 
 class CenCom(Carac):
     """Class CenCom"""
+
     CEN_LIST = [
         "Centrality : Degree Centrality",
         "Centrality : Betweenness Centrality",

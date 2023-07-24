@@ -1,6 +1,7 @@
 import networkx as nx
 import pandas as pd
 from pyvis.network import Network
+import streamlit as st
 
 from cen_com import CenCom
 from graphs import Graph
@@ -79,7 +80,9 @@ class PyvisGraph(CenCom):
         G = Network(height="900px", width="100%", bgcolor="#FFFFFF", font_color="black")
 
         if algo not in CenCom.CEN_LIST + CenCom.COM_LIST:
-            raise ValueError(f"Invalid centrality name. Expected one of: {CenCom.COM_LIST + CenCom.COM_LIST}")
+            raise ValueError(
+                f"Invalid centrality name. Expected one of: {CenCom.COM_LIST + CenCom.COM_LIST}"
+            )
 
         if algo in CenCom.CEN_LIST:
             print(f"Calculating {algo}")
@@ -107,13 +110,21 @@ class PyvisGraph(CenCom):
                 G.from_nx(self.graph)
                 list_nodes = G.get_network_data()[0]
                 for node in list_nodes:
-                    node["color"] = next((item["color"] for item in self.list_test if item["id"] == node["id"]), None)
+                    node["color"] = next(
+                        (
+                            item["color"]
+                            for item in self.list_test
+                            if item["id"] == node["id"]
+                        ),
+                        None,
+                    )
                 print("Created random graph pyvis...")
                 G.set_options(PyvisGraph.OPTION2)
 
             print("Created graph pyvis")
         # G.show_buttons(filter_=['physics'])
         self.pyvis = G
+
 
 if __name__ == "__main__":
     G1 = PyvisGraph(edges_path="data/ter/edges.csv", nodes_path="data/ter/nodes.csv")
