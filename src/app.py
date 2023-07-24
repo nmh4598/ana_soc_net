@@ -25,13 +25,13 @@ def main():
                 "Select centrality or community:", ("Community", "Centrality")
             )
             if algo == "Community":
-                cen = st.selectbox("Select Community:", CenCom.COM_LIST)
-                graph_ter.choose_data(Graph.DATA_LIST[0])
-                graph_ter.gnet_pyvis(cen)
-            else:
-                com = st.selectbox("Select Centrality:", CenCom.CEN_LIST)
+                com = st.selectbox("Select Community:", CenCom.COM_LIST)
                 graph_ter.choose_data(Graph.DATA_LIST[0])
                 graph_ter.gnet_pyvis(com)
+            else:
+                cen = st.selectbox("Select Centrality:", CenCom.CEN_LIST)
+                graph_ter.choose_data(Graph.DATA_LIST[0])
+                graph_ter.gnet_pyvis(cen)
         else:
             st.write("Random Graph with communities.")
             randomgraph = st.selectbox("Select random graph:", Graph.RANDOM_MODEL_LIST)

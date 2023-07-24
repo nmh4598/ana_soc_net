@@ -128,5 +128,5 @@ if __name__ == "__main__":
     G1.create_graph()
     G1.choose_data(Graph.DATA_LIST[0])
     # G1.info()
-    G1.gnet_pyvis(CenCom.COM_LIST[0])
+    G1.gnet_pyvis(CenCom.CEN_LIST[0])
     G1.pyvis.save_graph("pyvis_graph.html")
