@@ -1,9 +1,13 @@
+"""Class Graph"""
+import re
+
 import networkx as nx
 import pandas as pd
-import re
 
 
 class Graph:
+    """Class Graph"""
+
     DATA_LIST = ["Mapping Networks of Terrorist Cells", "Random Graph"]
 
     RANDOM_MODEL_LIST = [
@@ -21,14 +25,16 @@ class Graph:
     K = 5
 
     def __init__(self, edges_path: str, nodes_path: str):
+        """Initialize a new Graphs object."""
         self.edges_path = edges_path
         self.nodes_path = nodes_path
         self.edges: pd.DataFrame = None
         self.nodes: pd.DataFrame = None
         self.graph = None
-        self.rg: bool = None
+        self.rada: bool = None
 
     def load_data(self):
+        """Load data"""
         self.edges = pd.read_csv(self.edges_path)
         self.nodes = pd.read_csv(self.nodes_path)
         print("Loading data...")
@@ -46,7 +52,8 @@ class Graph:
 
         self.nodes["pos"] = self.nodes["pos"].apply(
             lambda s: tuple(
-                [float(re.search(r"\d+\.\d+", part).group()) for part in s.split(",")]
+                float(re.search(r"\d+\.\d+", part).group())
+                for part in s.split(",")
             )
         )
 
@@ -59,33 +66,36 @@ class Graph:
         )
 
     def create_graph(self):
+        """Create graph"""
         self.load_data()
 
-        G = nx.Graph()
+        g_pyvis = nx.Graph()
 
         for _, row in self.edges.iterrows():
-            G.add_edge(row["# source"], row[" target"])
+            g_pyvis.add_edge(row["# source"], row[" target"])
 
         nx.set_node_attributes(
-            G,
+            g_pyvis,
             self.nodes[["index", "id", "name", "group", "pos"]]
             .set_index("index")
             .to_dict(orient="index"),
         )
-        self.graph = G
+        self.graph = g_pyvis
         print("Graph created...")
 
     def random_graph(self, random_model: str):
+        """Create random graph"""
         if random_model not in Graph.RANDOM_MODEL_LIST:
-            raise ValueError(
-                f"Invalid centrality name. Expected one of: {Graph.RANDOM_MODEL_LIST}"
-            )
+            raise ValueError(f"Invalid centrality name. Expected one of: \
+                {Graph.RANDOM_MODEL_LIST}")
 
-        elif random_model == Graph.RANDOM_MODEL_LIST[0]:
-            self.graph = nx.erdos_renyi_graph(Graph.N, 4.94 / Graph.N, seed=2023)
+        if random_model == Graph.RANDOM_MODEL_LIST[0]:
+            self.graph = nx.erdos_renyi_graph(
+                Graph.N, 4.94 / Graph.N, seed=2023)
 
         elif random_model == Graph.RANDOM_MODEL_LIST[1]:
-            self.graph = nx.watts_strogatz_graph(Graph.N, Graph.K, 0.5, seed=2023)
+            self.graph = nx.watts_strogatz_graph(
+                Graph.N, Graph.K, 0.5, seed=2023)
 
         elif random_model == Graph.RANDOM_MODEL_LIST[2]:
             self.graph = nx.caveman_graph(Graph.L, Graph.K)
@@ -94,21 +104,16 @@ class Graph:
             self.graph = nx.connected_caveman_graph(Graph.L, Graph.K)
 
         elif random_model == Graph.RANDOM_MODEL_LIST[4]:
-            self.graph = nx.relaxed_caveman_graph(Graph.L, Graph.K, 0.3, seed=2023)
+            self.graph = nx.relaxed_caveman_graph(Graph.L, Graph.K,
+                                                  0.3, seed=2023)
 
         print("Random graph created...")
 
     def choose_data(self, type_data: str, random_model: str = None):
+        """Choose data"""
         if type_data == Graph.DATA_LIST[0]:
             self.create_graph()
-            self.rg = False
+            self.rada = False
         elif type_data == Graph.DATA_LIST[1]:
             self.random_graph(random_model)
-            self.rg = True
-
-    def main():
-        pass
-
-
-if __name__ == "__main__":
-    main()
+            self.rada = True

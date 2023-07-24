@@ -1,17 +1,19 @@
 """Class Carac"""
 import networkx as nx
 import pandas as pd
+
 from .graphs import Graph
-import re
 
 
 class Carac(Graph):
     """Class Carac"""
 
-    def init(self):
+    def init(self, edges_path, nodes_path):
+        """Inheritance from class Graph"""
         Graph.__init__(self, edges_path, nodes_path)
 
     def info(self):
+        """Return a dataframe with the main caracteristics of the graph"""
         nb_nodes = self.graph.number_of_nodes()
         nb_edges = self.graph.number_of_edges()
         nb_components = nx.number_connected_components(self.graph)
@@ -24,7 +26,7 @@ class Carac(Graph):
         clustering = round(nx.average_clustering(self.graph), 3)
         directed = nx.is_directed(self.graph)
 
-        if self.rg == False:
+        if self.rada is False:
             avg_spl = round(nx.average_shortest_path_length(self.graph), 3)
             diameter = nx.diameter(self.graph)
             df_carac = pd.DataFrame(
