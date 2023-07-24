@@ -5,10 +5,12 @@ install:
 test:
 	python -m pytest -vv test_hello.py
 
-format:
-	black .
+bl:
+	black src
 
-lint:
-	pylint $(git ls-files '*.py')
+lt:
+	pylint src
+
+format: bl lt
 
 all: install lint test
