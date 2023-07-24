@@ -27,7 +27,7 @@ class CenCom(Carac):
         """Inheritance from class Carac"""
         Carac.__init__(self, edges_path, nodes_path)
 
-    def _create_centrality_df(self, centrality_dict: dict, algo: str, n: int):
+    def _create_centrality_df(self, centrality_dict: dict, algo: str, n: int = 8):
         df_centrality = pd.DataFrame.from_dict(centrality_dict, orient="index")
         df_centrality.columns = [algo]
         df_centrality["Top_" + algo.split()[-1]] = (
@@ -35,7 +35,7 @@ class CenCom(Carac):
         ).astype(int)
         self.df_centrality = pd.concat([self.nodes, df_centrality], axis=1)
 
-    def centrality(self, algo: str, n: int):
+    def centrality(self, algo: str, n: int = 8):
         """Calculate degree centrality and assign top n nodes a value of 1, otherwise 0.
 
         Args:

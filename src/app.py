@@ -31,7 +31,7 @@ def main():
             else:
                 cen = st.selectbox("Select Centrality:", CenCom.CEN_LIST)
                 graph_ter.choose_data(Graph.DATA_LIST[0])
-                graph_ter.gnet_pyvis(cen)
+                graph_ter.gnet_pyvis(cen,8)
         else:
             st.write("Random Graph with communities.")
             randomgraph = st.selectbox("Select random graph:", Graph.RANDOM_MODEL_LIST)
