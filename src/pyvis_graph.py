@@ -3,8 +3,8 @@ import pandas as pd
 from pyvis.network import Network
 import streamlit as st
 
-from cen_com import CenCom
-from graphs import Graph
+from .cen_com import CenCom
+from .graphs import Graph
 
 
 class PyvisGraph(CenCom):

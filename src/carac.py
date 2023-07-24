@@ -1,12 +1,13 @@
 """Class Carac"""
 import networkx as nx
 import pandas as pd
-from graphs import Graph
+from .graphs import Graph
 import re
 
 
 class Carac(Graph):
     """Class Carac"""
+
     def init(self):
         Graph.__init__(self, edges_path, nodes_path)
 
@@ -16,10 +17,7 @@ class Carac(Graph):
         nb_components = nx.number_connected_components(self.graph)
         degrees = nx.degree_histogram(self.graph)
         avg_degree = round(
-            (
-                sum(i * degrees[i] for i in range(len(degrees)))
-                / nb_nodes
-            ),
+            (sum(i * degrees[i] for i in range(len(degrees))) / nb_nodes),
             3,
         )
         density = round(nx.density(self.graph), 3)
