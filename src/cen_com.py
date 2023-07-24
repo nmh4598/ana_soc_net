@@ -1,7 +1,7 @@
 """Class Centrality and Community"""
 import networkx as nx
 import pandas as pd
-from .carac import Carac
+from carac import Carac
 import networkx.algorithms.community as nxcom
 import webcolors
 import random

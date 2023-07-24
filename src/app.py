@@ -3,9 +3,9 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 
-from .pyvis_graph import PyvisGraph
-from .graphs import Graph
-from .cen_com import CenCom
+from pyvis_graph import PyvisGraph
+from graphs import Graph
+from cen_com import CenCom
 
 
 def main():
