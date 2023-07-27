@@ -6,14 +6,33 @@ from .graphs import Graph
 
 
 class Carac(Graph):
-    """Class Carac"""
+    """A class for computing the main characteristics of a graph."""
 
-    def init(self, edges_path, nodes_path):
-        """Inheritance from class Graph"""
-        Graph.__init__(self, edges_path, nodes_path)
+    def __init__(self, edges_path: str, nodes_path: str):
+        """Initialize a new Carac object.
+
+        Args:
+            edges_path (str): The path to the CSV file containing the edges of the graph.
+            nodes_path (str): The path to the CSV file containing the nodes of the graph.
+        """
+        Graph.__init__(self, edges_path: str, nodes_path: str)
 
     def info(self):
-        """Return a dataframe with the main caracteristics of the graph"""
+        """Compute the main characteristics of the graph and return them as a DataFrame.
+
+        Returns:
+            pd.DataFrame: A DataFrame containing the following columns:
+                - Number of nodes
+                - Number of edges
+                - Directed graph
+                - Number of components
+                - Average degree
+                - Density
+                - Clustering
+                - Diameter of Network (if the graph is not a RADA graph)
+                - Average Shortest Path (if the graph is not a RADA graph)
+        """
+        # Compute the main characteristics of the graph
         nb_nodes = self.graph.number_of_nodes()
         nb_edges = self.graph.number_of_edges()
         nb_components = nx.number_connected_components(self.graph)
@@ -35,7 +54,7 @@ class Carac(Graph):
                     "Number of edges": [nb_edges],
                     "Directed graph": [directed],
                     "Number of Components": [nb_components],
-                    "Average degre": [avg_degree],
+                    "Average degree": [avg_degree],
                     "Density": [density],
                     "Clustering": [clustering],
                     "Diameter of Network": [diameter],
@@ -49,7 +68,7 @@ class Carac(Graph):
                     "Number of edges": [nb_edges],
                     "Directed graph": [directed],
                     "Number of Components": [nb_components],
-                    "Average degre": [avg_degree],
+                    "Average degree": [avg_degree],
                     "Density": [density],
                     "Clustering": [clustering],
                 }
