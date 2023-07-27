@@ -10,14 +10,10 @@ class Carac(Graph):
 
     def __init__(self, edges_path: str, nodes_path: str):
         """Initialize a new Carac object.
-
-        Args:
-            edges_path (str): The path to the CSV file containing the edges of the graph.
-            nodes_path (str): The path to the CSV file containing the nodes of the graph.
         """
-        Graph.__init__(self, edges_path: str, nodes_path: str)
+        super().__init__(edges_path, nodes_path)
 
-    def info(self):
+    def info(self) -> pd.DataFrame:
         """Compute the main characteristics of the graph and return them as a DataFrame.
 
         Returns:
