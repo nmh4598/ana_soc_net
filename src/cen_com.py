@@ -1,9 +1,9 @@
 """Class Centrality and Community"""
-import networkx as nx
-import networkx.algorithms.community as nxcom
-import pandas as pd
 import random
-import re
+
+import networkx as nx
+#import networkx.algorithms.community as nxcom
+import pandas as pd
 import webcolors
 
 from typing import List, Dict, Union

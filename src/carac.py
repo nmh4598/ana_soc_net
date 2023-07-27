@@ -8,11 +8,6 @@ from .graphs import Graph
 class Carac(Graph):
     """A class for computing the main characteristics of a graph."""
 
-    def __init__(self, edges_path: str, nodes_path: str):
-        """Initialize a new Carac object.
-        """
-        super().__init__(edges_path, nodes_path)
-
     def info(self) -> pd.DataFrame:
         """Compute the main characteristics of the graph and return them as a DataFrame.
 
@@ -70,3 +65,4 @@ class Carac(Graph):
                 }
             )
         return df_carac
+    

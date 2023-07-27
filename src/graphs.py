@@ -137,3 +137,4 @@ class Graph:
         elif type_data == Graph.DATA_LIST[1]:
             self.random_graph(random_model)
             self.rada = True
+            

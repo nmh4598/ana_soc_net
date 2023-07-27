@@ -5,7 +5,7 @@ from .cen_com import CenCom
 
 
 class PyvisGraph(CenCom):
-    
+    """A class for creating a pyvis graph."""
     COLOR_MAP = {
         0: "#ff4d4d",
         1: "#33cc33",
