@@ -52,8 +52,7 @@ class Graph:
 
         self.nodes["pos"] = self.nodes["pos"].apply(
             lambda s: tuple(
-                float(re.search(r"\d+\.\d+", part).group())
-                for part in s.split(",")
+                float(re.search(r"\d+\.\d+", part).group()) for part in s.split(",")
             )
         )
 
@@ -94,16 +93,16 @@ class Graph:
 
         """
         if random_model not in Graph.RANDOM_MODEL_LIST:
-            raise ValueError(f"Invalid centrality name. Expected one of: \
-                {Graph.RANDOM_MODEL_LIST}")
+            raise ValueError(
+                f"Invalid centrality name. Expected one of: \
+                {Graph.RANDOM_MODEL_LIST}"
+            )
 
         if random_model == Graph.RANDOM_MODEL_LIST[0]:
-            self.graph = nx.erdos_renyi_graph(
-                Graph.N, 4.94 / Graph.N, seed=2023)
+            self.graph = nx.erdos_renyi_graph(Graph.N, 4.94 / Graph.N, seed=2023)
 
         elif random_model == Graph.RANDOM_MODEL_LIST[1]:
-            self.graph = nx.watts_strogatz_graph(
-                Graph.N, Graph.K, 0.5, seed=2023)
+            self.graph = nx.watts_strogatz_graph(Graph.N, Graph.K, 0.5, seed=2023)
 
         elif random_model == Graph.RANDOM_MODEL_LIST[2]:
             self.graph = nx.caveman_graph(Graph.L, Graph.K)
@@ -112,8 +111,7 @@ class Graph:
             self.graph = nx.connected_caveman_graph(Graph.L, Graph.K)
 
         elif random_model == Graph.RANDOM_MODEL_LIST[4]:
-            self.graph = nx.relaxed_caveman_graph(Graph.L, Graph.K,
-                                                  0.3, seed=2023)
+            self.graph = nx.relaxed_caveman_graph(Graph.L, Graph.K, 0.3, seed=2023)
 
         print("Random graph created...")
 
@@ -124,7 +122,7 @@ class Graph:
 
         Args:
             type_data (str): The type of data to use.
-            random_model (str, optional): The model of the random graph to create. 
+            random_model (str, optional): The model of the random graph to create.
             Defaults to None.
 
         Raises:
@@ -137,4 +135,3 @@ class Graph:
         elif type_data == Graph.DATA_LIST[1]:
             self.random_graph(random_model)
             self.rada = True
-            

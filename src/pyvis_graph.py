@@ -6,6 +6,7 @@ from .cen_com import CenCom
 
 class PyvisGraph(CenCom):
     """A class for creating a pyvis graph."""
+
     COLOR_MAP = {
         0: "#ff4d4d",
         1: "#33cc33",
@@ -100,14 +101,12 @@ class PyvisGraph(CenCom):
             if self.rada is False:
                 if algo == CenCom.COM_LIST[0]:
                     df_pyvis = self.nodes.copy()
-                    df_pyvis["color"] = df_pyvis["group"].map(
-                        PyvisGraph.COLOR_MAP)
+                    df_pyvis["color"] = df_pyvis["group"].map(PyvisGraph.COLOR_MAP)
                     print("Data default")
                 else:
                     self.communities(algo)
                     df_pyvis = self.df_community.copy()
-                    df_pyvis["color"] = df_pyvis.iloc[:, 7].map(
-                        PyvisGraph.COLOR_MAP)
+                    df_pyvis["color"] = df_pyvis.iloc[:, 7].map(PyvisGraph.COLOR_MAP)
                 self._add_nodes_and_edges(g_pyvis, df_pyvis)
                 g_pyvis.set_options(PyvisGraph.OPTION1)
             elif self.rada is True:

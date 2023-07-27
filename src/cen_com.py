@@ -1,12 +1,14 @@
 """Class Centrality and Community"""
 import random
+from typing import List, Dict, Union
 
 import networkx as nx
-#import networkx.algorithms.community as nxcom
+
+# import networkx.algorithms.community as nxcom
 import pandas as pd
 import webcolors
 
-from typing import List, Dict, Union
+
 from .carac import Carac
 
 
@@ -34,10 +36,9 @@ class CenCom(Carac):
         self.df_community: pd.DataFrame = None
         self.list_test: List[Dict[str, Union[str, int]]] = []
 
-    def _create_centrality_df(self,
-                              centrality_dict: dict,
-                              algo: str,
-                              n_cen: int = 8) -> None:
+    def _create_centrality_df(
+        self, centrality_dict: dict, algo: str, n_cen: int = 8
+    ) -> None:
         df_centrality = pd.DataFrame.from_dict(centrality_dict, orient="index")
         df_centrality.columns = [algo]
         df_centrality["Top_" + algo.split()[-1]] = (
@@ -60,15 +61,16 @@ class CenCom(Carac):
             nodes will have 0.
         """
         if algo not in CenCom.CEN_LIST:
-            raise ValueError(f"Invalid centrality name. Expected one of: \
-                             {CenCom.CEN_LIST}")
+            raise ValueError(
+                f"Invalid centrality name. Expected one of: \
+                             {CenCom.CEN_LIST}"
+            )
 
         if algo == CenCom.CEN_LIST[0]:
             centrality_algo = nx.degree_centrality(self.graph)
 
         elif algo == CenCom.CEN_LIST[1]:
-            centrality_algo = nx.betweenness_centrality(self.graph,
-                                                        normalized=False)
+            centrality_algo = nx.betweenness_centrality(self.graph, normalized=False)
 
         elif algo == CenCom.CEN_LIST[2]:
             centrality_algo = nx.closeness_centrality(self.graph)
@@ -102,9 +104,7 @@ class CenCom(Carac):
 
             final_df = pd.concat(df_com, ignore_index=True)
             self.df_community = pd.merge(
-                self.nodes,
-                final_df,
-                left_on="index", right_on="index", how="inner"
+                self.nodes, final_df, left_on="index", right_on="index", how="inner"
             )
 
     def communities(self, algo: str) -> None:
@@ -128,11 +128,13 @@ class CenCom(Carac):
             communities_algo = sorted(
                 nx.algorithms.community.greedy_modularity_communities(self.graph),
                 key=len,
-                reverse=True
+                reverse=True,
             )
 
         elif algo == CenCom.COM_LIST[3]:
-            communities_algo = sorted(nx.algorithms.community.label_propagation_communities(self.graph))
+            communities_algo = sorted(
+                nx.algorithms.community.label_propagation_communities(self.graph)
+            )
 
         self._create_communities_df(communities_algo, algo)
         print("Communities calculated...")

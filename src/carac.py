@@ -65,4 +65,3 @@ class Carac(Graph):
                 }
             )
         return df_carac
-    
