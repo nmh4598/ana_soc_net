@@ -5,7 +5,7 @@ from .cen_com import CenCom
 
 
 class PyvisGraph(CenCom):
-    """Class PyvisGraph"""
+    """A class for creating a pyvis graph."""
 
     COLOR_MAP = {
         0: "#ff4d4d",
@@ -55,12 +55,11 @@ class PyvisGraph(CenCom):
         }
         """
 
-    def __init__(self, edges_path, nodes_path):
-        """Inheritance from class CenCom"""
-        CenCom.__init__(self, edges_path, nodes_path)
+    def __init__(self, edges_path: str, nodes_path: str) -> None:
+        super().__init__(edges_path, nodes_path)
         self.pyvis = None
 
-    def _add_nodes_and_edges(self, graph, df_pyvis):
+    def _add_nodes_and_edges(self, graph, df_pyvis) -> None:
         graph.add_nodes(
             df_pyvis["index"],
             x=df_pyvis["x"],
@@ -76,7 +75,7 @@ class PyvisGraph(CenCom):
             dst = edge[1]
             graph.add_edge(src, dst)
 
-    def gnet_pyvis(self, algo: str, n_cen: int = 8):
+    def gnet_pyvis(self, algo: str, n_cen: int = 8) -> None:
         """Create a pyvis graph"""
         print("Initializing pyvis graph...")
         g_pyvis = Network(
@@ -102,14 +101,12 @@ class PyvisGraph(CenCom):
             if self.rada is False:
                 if algo == CenCom.COM_LIST[0]:
                     df_pyvis = self.nodes.copy()
-                    df_pyvis["color"] = df_pyvis["group"].map(
-                        PyvisGraph.COLOR_MAP)
+                    df_pyvis["color"] = df_pyvis["group"].map(PyvisGraph.COLOR_MAP)
                     print("Data default")
                 else:
                     self.communities(algo)
                     df_pyvis = self.df_community.copy()
-                    df_pyvis["color"] = df_pyvis.iloc[:, 7].map(
-                        PyvisGraph.COLOR_MAP)
+                    df_pyvis["color"] = df_pyvis.iloc[:, 7].map(PyvisGraph.COLOR_MAP)
                 self._add_nodes_and_edges(g_pyvis, df_pyvis)
                 g_pyvis.set_options(PyvisGraph.OPTION1)
             elif self.rada is True:

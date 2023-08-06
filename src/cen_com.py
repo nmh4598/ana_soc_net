@@ -1,42 +1,44 @@
 """Class Centrality and Community"""
 import random
+from typing import List, Dict, Union
 
 import networkx as nx
-import networkx.algorithms.community as nxcom
+
+# import networkx.algorithms.community as nxcom
 import pandas as pd
 import webcolors
+
 
 from .carac import Carac
 
 
 class CenCom(Carac):
-    """Class CenCom"""
+    """A class for computing the centrality and communities of a graph."""
 
-    CEN_LIST = [
+    CEN_LIST: List[str] = [
         "Centrality : Degree Centrality",
         "Centrality : Betweenness Centrality",
         "Centrality : Closeness Centrality",
         "Centrality : Eigenvector Centrality",
     ]
 
-    COM_LIST = [
+    COM_LIST: List[str] = [
         "Communities: AF11, AF175, AF77, AF93, other ",
         "Communities: Girvan Newman",
         "Communities: Clauset, Newman Moore",
         "Communities: Louvain",
     ]
 
-    def __init__(self, edges_path: str, nodes_path: str):
-        """Inheritance from class Carac"""
-        Carac.__init__(self, edges_path, nodes_path)
+    def __init__(self, edges_path: str, nodes_path: str) -> None:
+        """Initialize a new CenCom object."""
+        super().__init__(edges_path, nodes_path)
         self.df_centrality: pd.DataFrame = None
         self.df_community: pd.DataFrame = None
-        self.list_test = []
+        self.list_test: List[Dict[str, Union[str, int]]] = []
 
-    def _create_centrality_df(self,
-                              centrality_dict: dict,
-                              algo: str,
-                              n_cen: int = 8):
+    def _create_centrality_df(
+        self, centrality_dict: dict, algo: str, n_cen: int = 8
+    ) -> None:
         df_centrality = pd.DataFrame.from_dict(centrality_dict, orient="index")
         df_centrality.columns = [algo]
         df_centrality["Top_" + algo.split()[-1]] = (
@@ -44,13 +46,18 @@ class CenCom(Carac):
         ).astype(int)
         self.df_centrality = pd.concat([self.nodes, df_centrality], axis=1)
 
-    def centrality(self, algo: str, n_cen: int = 8):
+    def centrality(self, algo: str, n_cen: int = 8) -> None:
         """Calculate degree centrality and assign top n nodes a value of
         1, otherwise 0.
 
         Args:
+<<<<<<< HEAD
             algo (str): Name of the centrality column to create.
             n_cen (int): Number of top nodes to assign a value of 1.
+=======
+            algo: Name of the centrality column to create.
+            n_cen: Number of top nodes to assign a value of 1.
+>>>>>>> 2209ea30765836947c466b2305de301428dc3f80
 
         This function creates a self.centrality dataframe with self.nodes
         and 2 new columns:
@@ -59,15 +66,16 @@ class CenCom(Carac):
             nodes will have 0.
         """
         if algo not in CenCom.CEN_LIST:
-            raise ValueError(f"Invalid centrality name. Expected one of: \
-                             {CenCom.CEN_LIST}")
+            raise ValueError(
+                f"Invalid centrality name. Expected one of: \
+                             {CenCom.CEN_LIST}"
+            )
 
         if algo == CenCom.CEN_LIST[0]:
             centrality_algo = nx.degree_centrality(self.graph)
 
         elif algo == CenCom.CEN_LIST[1]:
-            centrality_algo = nx.betweenness_centrality(self.graph,
-                                                        normalized=False)
+            centrality_algo = nx.betweenness_centrality(self.graph, normalized=False)
 
         elif algo == CenCom.CEN_LIST[2]:
             centrality_algo = nx.closeness_centrality(self.graph)
@@ -78,7 +86,7 @@ class CenCom(Carac):
         self._create_centrality_df(centrality_algo, algo, n_cen)
         print("Centrality calculated...")
 
-    def _create_communities_df(self, communities, algo: str):
+    def _create_communities_df(self, communities, algo: str) -> None:
         if self.rada is True:
             # Creat color for random graph
             for frozen_set in communities:
@@ -101,31 +109,37 @@ class CenCom(Carac):
 
             final_df = pd.concat(df_com, ignore_index=True)
             self.df_community = pd.merge(
-                self.nodes,
-                final_df,
-                left_on="index", right_on="index", how="inner"
+                self.nodes, final_df, left_on="index", right_on="index", how="inner"
             )
 
-    def communities(self, algo: str):
-        """Calculate communities and assign a color to each community."""
+    def communities(self, algo: str) -> None:
+        """Compute the communities of the graph and assign a color to each community.
+
+        Args:
+            algo: The name of the algorithm to use for computing the communities.
+
+        Raises:
+            ValueError: If the specified algorithm is not one of the supported algorithms.
+        """
         if algo not in CenCom.COM_LIST:
             raise ValueError(
                 f"Invalid centrality name. Expected one of: {CenCom.COM_LIST}"
             )
 
         if algo == CenCom.COM_LIST[1]:
-            communities_algo = next(nxcom.girvan_newman(self.graph))
+            communities_algo = next(nx.algorithms.community.girvan_newman(self.graph))
 
         elif algo == CenCom.COM_LIST[2]:
             communities_algo = sorted(
-                nxcom.greedy_modularity_communities(self.graph),
+                nx.algorithms.community.greedy_modularity_communities(self.graph),
                 key=len,
-                reverse=True
+                reverse=True,
             )
 
         elif algo == CenCom.COM_LIST[3]:
-            communities_algo = sorted(nxcom.louvain_communities(self.graph,
-                                                                seed=123))
+            communities_algo = sorted(
+                nx.algorithms.community.label_propagation_communities(self.graph)
+            )
 
         self._create_communities_df(communities_algo, algo)
         print("Communities calculated...")

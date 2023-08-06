@@ -8,7 +8,11 @@ from .graphs import Graph
 class Carac(Graph):
     """A class for computing the main characteristics of a graph."""
 
+<<<<<<< HEAD
     def info(self):
+=======
+    def info(self) -> pd.DataFrame:
+>>>>>>> 2209ea30765836947c466b2305de301428dc3f80
         """Compute the main characteristics of the graph and return them as a DataFrame.
 
         Returns:
