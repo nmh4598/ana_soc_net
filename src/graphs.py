@@ -64,7 +64,7 @@ class Graph:
             pos=self.nodes["pos"]
         )
 
-    def _create_graph(self) -> None:
+    def create_graph(self) -> None:
         """Creates a graph from the loaded data."""
         self._load_data()
 
@@ -82,7 +82,7 @@ class Graph:
         self.graph = g_pyvis
         print("Graph created...")
 
-    def _random_graph(self, random_model: str) -> None:
+    def random_graph(self, random_model: str) -> None:
         """Creates a random graph of the specified model.
 
         Args:
@@ -130,8 +130,8 @@ class Graph:
 
         """
         if type_data == Graph.DATA_LIST[0]:
-            self._create_graph()
+            self.create_graph()
             self.rada = False
         elif type_data == Graph.DATA_LIST[1]:
-            self._random_graph(random_model)
+            self.random_graph(random_model)
             self.rada = True
