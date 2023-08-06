@@ -54,11 +54,9 @@ class CenCom(Carac):
                 algo (str): Name of the centrality column to create.
                 n_cen (int): Number of top nodes to assign a value of 1.
 
-            This function creates a self.df_centrality dataframe with self.nodes
-            and 2 new column:
-                - `algo`: Column with degree centrality values.
-                - "Top_centrality": Top n nodes will have a value of 1, other
-                nodes will have 0.
+            This function creates a self.df_centrality dataframe with self.nodes and 2 new columns:
+            `algo`: Column with degree centrality values and `Top_centrality` Top n nodes will have 
+            a value of 1, other nodes will have 0.
         """
         if algo not in CenCom.CEN_LIST:
             raise ValueError(
@@ -114,9 +112,8 @@ class CenCom(Carac):
             Args:
                 algo (str): The name of the algorithm to use for computing the communities.
 
-            This function creates a self.df_community dataframe with self.nodes
-            with a new column:
-                - "communities": Column with the communities values.
+            This function creates a self.df_community dataframe with self.nodes with a new column
+            `communities`: Column with the communities values. 
         """
         if algo not in CenCom.COM_LIST:
             raise ValueError(
