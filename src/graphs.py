@@ -123,7 +123,6 @@ class Graph:
         Args:
             type_data (str): The type of data to use.
             random_model (str, optional): The model of the random graph to create.
-            Defaults to None.
 
         Raises:
             ValueError: If the specified data type is not valid.
