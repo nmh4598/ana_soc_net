@@ -8,7 +8,6 @@ import networkx as nx
 import pandas as pd
 import webcolors
 
-
 from .carac import Carac
 
 
@@ -48,22 +47,22 @@ class CenCom(Carac):
 
     def centrality(self, algo: str, n_cen: int = 8) -> None:
         """Calculate degree centrality and assign top n nodes a value of
-        1, otherwise 0.
+                1, otherwise 0.
 
-        Args:
-<<<<<<< HEAD
-            algo (str): Name of the centrality column to create.
-            n_cen (int): Number of top nodes to assign a value of 1.
-=======
-            algo: Name of the centrality column to create.
-            n_cen: Number of top nodes to assign a value of 1.
->>>>>>> 2209ea30765836947c466b2305de301428dc3f80
+                Args:
+        <<<<<<< HEAD
+                    algo (str): Name of the centrality column to create.
+                    n_cen (int): Number of top nodes to assign a value of 1.
+        =======
+                    algo: Name of the centrality column to create.
+                    n_cen: Number of top nodes to assign a value of 1.
+        >>>>>>> 2209ea30765836947c466b2305de301428dc3f80
 
-        This function creates a self.centrality dataframe with self.nodes
-        and 2 new columns:
-            - `algo`: Column with degree centrality values.
-            - "Top_centrality": Top n nodes will have a value of 1, other
-            nodes will have 0.
+                This function creates a self.centrality dataframe with self.nodes
+                and 2 new columns:
+                    - `algo`: Column with degree centrality values.
+                    - "Top_centrality": Top n nodes will have a value of 1, other
+                    nodes will have 0.
         """
         if algo not in CenCom.CEN_LIST:
             raise ValueError(
