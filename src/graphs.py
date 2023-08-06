@@ -33,7 +33,7 @@ class Graph:
         self.graph: nx.Graph = None
         self.rada: bool = None
 
-    def load_data(self) -> None:
+    def _load_data(self) -> None:
         """Loads the edges and nodes data from the CSV files."""
         self.edges = pd.read_csv(self.edges_path)
         self.nodes = pd.read_csv(self.nodes_path)
@@ -64,9 +64,9 @@ class Graph:
             pos=self.nodes["pos"]
         )
 
-    def create_graph(self) -> None:
+    def _create_graph(self) -> None:
         """Creates a graph from the loaded data."""
-        self.load_data()
+        self._load_data()
 
         g_pyvis = nx.Graph()
 
@@ -82,7 +82,7 @@ class Graph:
         self.graph = g_pyvis
         print("Graph created...")
 
-    def random_graph(self, random_model: str) -> None:
+    def _random_graph(self, random_model: str) -> None:
         """Creates a random graph of the specified model.
 
         Args:
@@ -130,8 +130,8 @@ class Graph:
 
         """
         if type_data == Graph.DATA_LIST[0]:
-            self.create_graph()
+            self._create_graph()
             self.rada = False
         elif type_data == Graph.DATA_LIST[1]:
-            self.random_graph(random_model)
+            self._random_graph(random_model)
             self.rada = True
