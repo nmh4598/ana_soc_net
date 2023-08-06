@@ -50,7 +50,7 @@ class CenCom(Carac):
 
         Args:
             algo (str): Name of the centrality column to create.
-            n (int): Number of top nodes to assign a value of 1.
+            n_cen (int): Number of top nodes to assign a value of 1.
 
         This function creates a self.centrality dataframe with self.nodes
         and 2 new columns:
